@@ -13,6 +13,7 @@ pkgs.mkShell {
     pythonPackages.venvShellHook
     pythonPackages.pytest
     pythonPackages.flask
+    pkgs.awsebcli
   ];
   venvDir = "./.venv";
   postVenvCreation = ''
