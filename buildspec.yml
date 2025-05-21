@@ -1,16 +1,15 @@
-version: 0.1
-eb_codebuild_settings:
-  CodeBuildServiceRole: codebuild-hello-world-flask-service-role
-  ComputeType: BUILD_GENERAL1_SMALL
+version: 0.2
 phases:
   install:
     commands:
       - pip install -r requirements.txt
+      - pip install awsebcli
+      - aws configure set region us-east-1
   build:
     commands:
-      - docker build .
+      - docker build -t flask-hello-world .
   post_build:
     commands:
       - echo "deploying into elastic beanstalk"
-      - eb init -p docker flask-hello-world
-      - eb deploy flask-hello-world
+      - eb init -p docker flask-hello-world --region us-east-1
+      - eb deploy flask-hello-world --verbose
