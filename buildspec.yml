@@ -1,8 +1,15 @@
 version: 0.1
+eb_codebuild_settings:
+  CodeBuildServiceRole: codebuild-hello-world-flask-service-role
+  ComputeType: BUILD_GENERAL1_SMALL
 phases:
   install:
     commands:
       - pip install -r requirements.txt
+  build:
+    commands:
+      - docker build .
   post_build:
     commands:
       - echo "deploying into elastic beanstalk"
+      - eb deploy
