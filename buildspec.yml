@@ -4,12 +4,12 @@ phases:
     commands:
       - pip install -r requirements.txt
       - pip install awsebcli
-      - aws configure set region us-east-1
+      - aws configure set region us-west-2
   build:
     commands:
       - docker build -t flask-hello-world .
   post_build:
     commands:
       - echo "deploying into elastic beanstalk"
-      - eb init -p docker flask-hello-world --region us-east-1
+      - eb init -p docker flask-hello-world --region ws-west-2
       - eb deploy flask-hello-world --verbose
