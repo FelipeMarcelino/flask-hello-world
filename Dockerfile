@@ -17,7 +17,7 @@ COPY . .
 ENV PYTHONUNBUFFERED=1
 
 # Expose port (if your app uses networking)
-EXPOSE 8000
+EXPOSE 8080
 
 # Command to run (update to match your entrypoint)
 CMD ["python", "hello.py"]
