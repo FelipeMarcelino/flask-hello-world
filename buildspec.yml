@@ -11,5 +11,5 @@ phases:
   post_build:
     commands:
       - echo "deploying into elastic beanstalk"
-      - eb init -p docker flask-hello-world --region ws-west-2
+      - eb init -p docker flask-hello-world --region us-west-2
       - eb deploy flask-hello-world --verbose
