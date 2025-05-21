@@ -1,0 +1,10 @@
+steps:
+  - name: 'python:3.9'
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        pip install -r requirements.txt
+serviceAccount: 'projects/fourth-archive-432009-n1/serviceAccounts/google-jupyter@fourth-archive-432009-n1.iam.gserviceaccount.com'
+options: # 👈 Must be at root level, not indented under steps
+  logging: CLOUD_LOGGING_ONLY
