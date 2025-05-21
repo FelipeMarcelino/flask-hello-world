@@ -12,4 +12,4 @@ phases:
   post_build:
     commands:
       - echo "deploying into elastic beanstalk"
-      - eb deploy
+      - eb deploy flask-hello-world
